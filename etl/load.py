@@ -40,6 +40,16 @@ def load_data():
             """
             cursor.execute(insert_query, tuple(row))
 
+
+        # insert_query = """
+        # INSERT INTO posts (
+        #     post_id, platform, post_type, post_date, post_day,
+        #     post_timing, likes, comments, shares
+        # )
+        # VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+        # """
+        # cursor.executemany(insert_query, [tuple(x) for x in df.values])
+
         conn.commit()
         logging.info("Data loaded into MySQL successfully!")
         cursor.close()
